@@ -16,3 +16,13 @@ console.log(gameName.length);
 console.log(gameName.toUpperCase());
 console.log(gameName.charAt(10));
 console.log(gameName.indexOf('s'));
+
+const anotherString = gameName.slice(1, 4);
+const newStringOne = "     Prabin    "
+console.log(newStringOne.trim());
+
+const url = "https://website.com/prabin%20rakshit"
+console.log(url.replace('%20', '-'));
+console.log(url.includes('prabin'));
+
+console.log(gameName.split('R'));
