@@ -11,3 +11,16 @@ if(email){
 
 // Truthy values
 // "0", 'false', " ", [], {}, function(){} <empty function>, 
+
+// Nullish Coalescing Operator (??): null undefined
+let val1
+// val1 = 5 ?? 10
+// val1 = null ?? 10
+// val1 = undefined ?? 15
+// val1 = null ?? 10 ?? 15 // takes the first received value
+// console.log(val1);
+
+// Ternary Operator
+val2 = val1 == 10 ? "Valid" : "Undefined"
+console.log(val2);
+
