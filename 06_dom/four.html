@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: #212121;color: aliceblue;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+
+        const langParent = document.querySelector('.language')
+        langParent.appendChild(li)
+    }
+    addLanguage("python")
+    addLanguage("typecript")
+
+    // Optimized approach as it does not travere the whole document tree as it does with innerHTML
+    function addOptiLang(langName){
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(`${langName}`))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptiLang("React")
+
+    // Edit (Optimized approach)
+    const secondLang = document.querySelector('li:nth-child(2)')
+    const newli = document.createElement('li')
+    newli.textContent = "Mojo"
+    secondLang.replaceWith(newli)
+
+     //edit
+     const firstLang = document.querySelector("li:first-child")
+     firstLang.outerHTML = '<li>Java</li>'
+
+    //  remove
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>
