@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://www.chaicode.com/images/cup-logo.svg">
+</head>
+<body>
+    <h1>Chai aur JS</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        const startbtn = document.querySelector("#start");
+        const stopbtn = document.querySelector("#stop");
+        const hex = "0123456789ABCDEF";
+        const randomColor = ()=>{
+            let color = "#";
+            for(let i = 0; i < 6 ; i++){
+                color += hex[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const changeColor = function(){
+            document.body.style.backgroundColor = randomColor();
+            console.trace(randomColor());
+        }
+
+        let changeColorInterval;
+        
+        startbtn.addEventListener("click", function(){
+            //startbtn.setAttribute("disabled", "true");
+            if(!changeColorInterval){
+                changeColorInterval = setInterval(()=>{
+                    console.log("color change");
+                    changeColor()
+                }, 1000);
+            }
+        });
+
+        stopbtn.addEventListener("click", function(){
+            clearInterval(changeColorInterval);
+            changeColorInterval = null;
+            //startbtn.removeAttribute("disabled")
+        })
+
+    </script>
+</body>
+</html>

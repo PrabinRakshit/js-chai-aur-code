@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="https://www.chaicode.com/images/cup-logo.svg">
+</head>
+<body>
+    <h1>Chai aur code</h1>
+    <button id="stop">Stop</button>
+
+    <script>
+
+        const sayHello = function(){
+            console.log("Hello");
+        }
+
+        const changeHeading = function(){
+            document.querySelector("h1").textContent = "Chai aur Biscuit";
+        }
+
+        const changeTopic = setTimeout(changeHeading, 2000)
+
+        const button = document.querySelector("#stop").addEventListener("click", function(){
+            clearTimeout(changeTopic);
+            console.log("Stopped");
+        })
+    </script>
+</body>
+</html>
