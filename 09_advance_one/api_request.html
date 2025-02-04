@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(23, 23, 23, 0.972);
+        }
+
+        .card {
+            box-shadow: 0px 0px 100px #9d51ed;
+            border-radius: 50px;
+            width: 250px;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: beige;
+            background-color: #33023d;
+            margin: auto;
+        }
+
+        .img {
+            width: 150px;
+            height: 150px;
+            border: 2px solid greenyellow;
+            border-radius: 50%;
+            margin-top: 15px;
+            overflow: hidden;
+        }
+
+        .img>img {
+            width: 100%;
+        }
+
+        .company {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="card">
+            <div class="img">
+                <img src="" alt="photo">
+            </div>
+            <h3 class="name"></h3>
+            <p class="company"></p>
+        </div>
+    </section>
+    
+    <script>
+        const apiUrl = "https://api.github.com/users/PrabinRakshit";
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', apiUrl);
+        xhr.onreadystatechange = function(){
+            console.log(xhr.readyState);
+            if(xhr.readyState === 4){
+                const data = JSON.parse(this.responseText);
+                document.querySelector("img").src = data.avatar_url;
+                document.querySelector(".name").textContent = data.name;
+                document.querySelector(".company").textContent = data.company;
+                console.log(data);
+            }
+        }
+        xhr.send();
+    </script>
+</body>
+</html>
